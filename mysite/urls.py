@@ -16,8 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 
+from hotplace.views import HotplaceLV,HotplaceDV
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+
+    #hotplace
+    path('hotplace/', include('hotplace.urls')),
 
     path('tinymce/', include('tinymce.urls')),
 
