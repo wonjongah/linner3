@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+    .star_back{
+        width:100px;
+        position:relative;
+    }
+    .star{
+        background-color:gold;
+        position:absolute;
+        height:18px;
+        z-index:100;
+    }
+    .star_img{
+        width:100%;
+
+        position:absolute;
+        height:18px;
+        z-index:110;
+    }
+
+    </style>
+</head>
+<body>
+<div>
+    <h1>Hotplace List</h1>
+    <ul>
+        {% for hotplace in object_list %}
+        <li>
+            <a href="{% url 'hotplace:detail' hotplace.id %}">{{hotplace}}</a>
+
+            <div class="star_back">
+                <div class="star" style="width:calc(20% * {{hotplace.rating}})"></div>
+                <img class="star_img" src="{% static 'images/stars.png' %}" alt="{{hotplace.rating}}"
+                     title="{{hotplace.rating}}">
+
+
+            </div>
+
+        </li>
+
+        {% endfor %}
+
+    </ul>
+
+</div>
+
+</body>
+</html>
