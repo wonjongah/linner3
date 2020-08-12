@@ -46,7 +46,14 @@ body {
 }
 #toggle-btn.active {
   left:230px;
-  transform:rotate(360deg);
+
+}
+#toggle-btn img.active {
+  position:absolute;
+  left:30px;
+  top:10px;
+
+  transition:left 200ms linear 0ms,transform 300ms ease 100ms;
 }
 #toggle-btn span {
   position:relative;
@@ -79,7 +86,7 @@ body {
 
 <div id="sidebar">
     <ul>
-        <a type="button">Home</a>
+        <a type="button">My Page</a>
         <a type="button">Recipe</a>
         <a type="button">Hot Place</a>
         <a type="button">My Pick</a>
@@ -89,7 +96,7 @@ body {
     <span></span>
     <span></span>
     <span></span>
-    <img src="static/images/linner.png" type="button" alt="logo">
+    <img src="static/images/linner.png" type="button" alt="logo"">
 </div>
 
 
