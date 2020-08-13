@@ -5,6 +5,8 @@ from django.core.validators import MinValueValidator, MaxValueValidator
 from tinymce.models import HTMLField
 #별점
 from django.core.validators import MinValueValidator,MaxValueValidator
+#태그
+from taggit.managers import TaggableManager
 
 # Create your models here.
 class Hotplace(models.Model):
@@ -25,6 +27,8 @@ class Hotplace(models.Model):
     content = HTMLField('CONTENT')
     create_dt = models.DateTimeField('CREATE_DATE', auto_now_add=True)
     modify_dt = models.DateTimeField('MODIFY_DATE')
+
+    tags = TaggableManager(blank=True)
 
     class Meta:
         verbose_name = 'hotplace'
