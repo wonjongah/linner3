@@ -1,9 +1,9 @@
+{% extends "base.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title></title>
+{% block title %}hotplace_list.html{% endblock %}
+
+{% block extra-style %}
+
     <style>
     .star_back{
         width:100px;
@@ -23,17 +23,25 @@
         z-index:110;
     }
 
+
     </style>
-</head>
-<body>
+{% endblock %}
+
+{% block content %}
 <div>
-    <h1>Hotplace List</h1>
+    <h1>Hotplaces</h1>
+    {% include "taggit/taggit_cloud2.html" %}
+
     <ul>
         {% for hotplace in object_list %}
         <li>
-            <a href="{% url 'hotplace:detail' hotplace.id %}">{{hotplace}}</a>
 
-            <div class="star_back">
+                 <a href="{% url 'hotplace:detail' hotplace.id %}">{{hotplace}}</a>
+
+
+
+
+            <div class="star_back" >
                 <div class="star" style="width:calc(20% * {{hotplace.rating}})"></div>
                 <img class="star_img" src="{% static 'images/stars.png' %}" alt="{{hotplace.rating}}"
                      title="{{hotplace.rating}}">
@@ -45,9 +53,12 @@
 
         {% endfor %}
 
+
     </ul>
 
 </div>
+{% endblock %}
 
-</body>
-</html>
+{% block extra-script %}
+
+{% endblock %}
