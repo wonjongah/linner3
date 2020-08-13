@@ -4,8 +4,8 @@
 
 {% block extra-style %}
 
-    <style>
-    .star_back{
+<style>
+        .star_back{
         width:100px;
         position:relative;
     }
@@ -22,43 +22,91 @@
         height:18px;
         z-index:110;
     }
+    .card-horizontal{
+        display:flex;
+        flex: 1 1 auto;
+    }
 
 
-    </style>
+
+
+</style>
 {% endblock %}
 
 {% block content %}
 <div>
-    <h1>Hotplaces</h1>
+
     {% include "taggit/taggit_cloud2.html" %}
+    <h1 style="text-align:center;">Hotplaces</h1>
 
-    <ul>
-        {% for hotplace in object_list %}
-        <li>
+    <div class="container">
 
-                 <a href="{% url 'hotplace:detail' hotplace.id %}">{{hotplace}}</a>
+        <div class="row">
+            {% for hotplace in hotplaces %}
+            <div class="col-lg-6  col-md-6 col-sm-12 my-3">
+                <div class="card">
+                    <div class="card-horizontal">
+                        <div class="img-square-wrapper">
+                            <a href="{% url 'hotplace:detail' hotplace.id %}" class="card-link stretched-link"
+                               alt="IMG">
+                                Big picture
+                            </a>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-title">{{hotplace.title}}</h4>
+                            <div style="height:15px;">
+                                <div class="star_back">
+                                    <div class="star" style="width:calc(20% * {{hotplace.rating}})"></div>
+                                    <img class="star_img" src="{% static 'images/stars.png' %}"
+                                         alt="{{hotplace.rating}}"
+                                         title="{{hotplace.rating}}">
+                                </div>
+                            </div>
+                            <div>
+                                <b>TAGS</b><i class="fas fa-tag"></i>
+                                {% load taggit_templatetags2_tags %}
+                                {% get_tags_for_object hotplace as "tags" %}
+                                {% for tag in tags %}
+                                <a href="{%url 'hotplace:tagged_object_list' tag.name%}">{{tag.name}}</a>
+                                {% endfor %}
+
+                            </div>
 
 
-
-
-            <div class="star_back" >
-                <div class="star" style="width:calc(20% * {{hotplace.rating}})"></div>
-                <img class="star_img" src="{% static 'images/stars.png' %}" alt="{{hotplace.rating}}"
-                     title="{{hotplace.rating}}">
-
+                        </div>
+                    </div>
+                </div>
 
             </div>
-
-        </li>
-
-        {% endfor %}
+            {% endfor %}
+        </div>
 
 
-    </ul>
+        <!--    <ul>-->
+        <!--        {% for hotplace in object_list %}-->
+        <!--        <li>-->
 
-</div>
-{% endblock %}
+        <!--                 <a href="{% url 'hotplace:detail' hotplace.id %}">{{hotplace}}</a>-->
 
-{% block extra-script %}
 
-{% endblock %}
+        <!--            <div class="star_back" >-->
+        <!--                <div class="star" style="width:calc(20% * {{hotplace.rating}})"></div>-->
+        <!--                <img class="star_img" src="{% static 'images/stars.png' %}" alt="{{hotplace.rating}}"-->
+        <!--                     title="{{hotplace.rating}}">-->
+
+
+        <!--            </div>-->
+
+        <!--        </li>-->
+
+        <!--        {% endfor %}-->
+
+
+        <!--    </ul>-->
+
+    </div>
+    {% endblock %}
+
+    {% block extra-script %}
+
+    {% endblock %}

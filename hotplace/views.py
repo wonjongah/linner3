@@ -6,6 +6,9 @@ from hotplace.models import Hotplace
 
 class HotplaceLV(ListView):
     model = Hotplace
+    template_name = 'hotplace/hotplace_list.html'
+    context_object_name = 'hotplaces'
+
 
 class HotplaceDV(DetailView):
     model = Hotplace
