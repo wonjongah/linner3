@@ -4,7 +4,9 @@
 {% block content %}
 <h1>Post Create/Update</h1>
 <p class="font-italic">This is a creation or update form for your post.</p>
-
+<style>
+    .hidden{display:none;}
+</style>
 <form action="." method="post" class="card pt-3">{% csrf_token %}
     <div class="form-group row">
         {{ form.Rec_conName| add_label_class:"col-form-label col-sm-2 ml-3 font-weight-bold" }}
@@ -12,28 +14,17 @@
             {{ form.Rec_conName|add_class:"form-control"|attr:"autofocus" }}
         </div>
     </div>
-<textarea name="content"></textarea>
-<title>Local image loading in to tinymce</title>
-<br/>
-<b>Image size should be lessthan 500kb</b>
-    <div class="form-group row">
-        {{ form.Rec_conContent| add_label_class:"col-form-label col-sm-2 ml-3 font-weight-bold" }}
-        <div class="col-sm-5">
-            {{ form.Rec_conContent|add_class:"form-control" }}
-        </div>
-        <small class="form-text text-muted">
-            {{ form.description.help_text }}</small>
-    </div>
+<div class="container">
+        <div class="row">
+            {{ form.Rec_conContent| add_label_class:"col-form-label col-sm-2 ml-3 font-weight-bold" }}
 
-
-           <div class="row">
             <div class="col-md-8">
                 <textarea name="" id="" cols="30" rows="10"></textarea>
                 <input name="image" type="file" id="upload" class="hidden" onchange="">
             </div>
             <div class="col-md-4"></div>
         </div>
-
+    </div>
 
 
     <div class="form-group row">
@@ -45,17 +36,17 @@
     </div>
     <div class="form-group">
         <div class="offset-sm-2 col-sm-5">
-            <input type="submit" value="Submit" class="btn btn-info"/>
+            <a><input type="submit" value="Submit" class="btn btn-info"/>let's go</a>
         </div>
     </div>
 </form>
 {% endblock %}
 
 {% block extra-script %}
- <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js"
- referrerpolicy="origin"></script>
+
  <script>
-    $(document).ready(function() {
+
+
         tinymce.init({
           selector: "textarea",
           theme: "modern",
@@ -92,6 +83,7 @@
             content: 'Test 2'
           }]
         });
-      });
+
+
 </script>
 {% endblock %}

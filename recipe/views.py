@@ -41,7 +41,7 @@ class YoutubeDV(DetailView):
         youtube_post.save()
         return context
 
-class RecipeCreateView(LoginRequiredMixin, CreateView):
+class RecipeCreateView(CreateView):
     model = RecipeContent
     fields = ['Rec_conName', 'Rec_conContent']
     success_url = reverse_lazy('recipe:recipe_listview')
