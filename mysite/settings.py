@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -39,6 +40,15 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # 'home',
+    'tinymce',
+    'widget_tweaks',
+
+    'taggit.apps.TaggitAppConfig',
+    'taggit_templatetags2',
+
+    'recipe.apps.RecipeConfig',
+    'hotplace.apps.HotplaceConfig',
+
 ]
 
 MIDDLEWARE = [
@@ -79,7 +89,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'linner_db',
-        'HOST': 'localhost',#'192.168.56.1',#'192.168.0.29',
+        'HOST': '192.168.0.29',#'192.168.56.1',#'192.168.0.29',
         'PORT':'3306',
         'USER':'linneruser',
         'PASSWORD':'1234',
@@ -105,6 +115,8 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+TAGGIT_CASE_INSENSITIVE = True
+TAGGIT_LIMIT = 50
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
