@@ -26,6 +26,9 @@ urlpatterns=[
     # hotplace/99/delete
     path('<int:pk>/delete/',HotplaceDeleteView.as_view(),name='delete'),
 
+    #다운로드
+    path('download/<int:id>',download,name="download"),
+
 
 
 ]

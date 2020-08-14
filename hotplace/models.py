@@ -22,7 +22,7 @@ class Hotplace(models.Model):
     rating = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(5)],default=1)
     content = HTMLField('CONTENT')
     create_dt = models.DateTimeField('CREATE_DATE', auto_now_add=True)
-    modify_dt = models.DateTimeField('MODIFY_DATE')
+    modify_dt = models.DateTimeField('MODIFY_DATE',auto_now=True)
 
     tags = TaggableManager(blank=True)
 
@@ -51,3 +51,13 @@ class Hotplace(models.Model):
     def save(self,*args,**kwargs):
         self.slug = slugify(self.title,allow_unicode=True)
         super().save(*args,**kwargs)
+
+
+class HotplaceAttachFile(models.Model):
+    post = models.ForeignKey(Hotplace,on_delete=models.CASCADE,related_name="files",verbose_name='Hotplace',blank=True,null=True)
+    upload_file = models.FileField(upload_to="%Y/%m/%d",null=True,blank=True,verbose_name='파일')
+    filename = models.CharField(max_length=64,null=True,verbose_name='첨부파일명')
+    content_type = models.CharField(max_length=128,null=True,verbose_name='MIME TYPE')
+    size = models.IntegerField('파일 크기')
+    def __str__(self):
+        return self.filename
