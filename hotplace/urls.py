@@ -13,6 +13,11 @@ urlpatterns=[
     # Example :/hotplace/tag/tagname/
     path('tag.<str:tag>',TaggedObjectLV.as_view(),name='tagged_object_list'),
 
+    #Archive
+    path('archive/',HotplaceAV.as_view(),name='hotplace_archive'),
+    path('archive/<int:year>/',HotplaceYAV.as_view(),name='hotplace_year_archive'),
+    path('archive/<int:year>/<str:month>/',HotplaceMAV.as_view(),name='hotplace_month_archive'),
+
 
 
 ]

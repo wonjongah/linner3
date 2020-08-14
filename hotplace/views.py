@@ -1,6 +1,7 @@
 from django.shortcuts import render
 
 from django.views.generic import ListView,DetailView,TemplateView
+from django.views.generic.dates import ArchiveIndexView,YearArchiveView,MonthArchiveView
 from hotplace.models import Hotplace
 # Create your views here.
 
@@ -28,3 +29,17 @@ class TaggedObjectLV(ListView):
         context = super().get_context_data(**kwargs)
         context['tagname'] = self.kwargs['tag']
         return context
+
+class HotplaceAV(ArchiveIndexView):
+    model = Hotplace
+    date_field = 'modify_dt'
+
+class HotplaceYAV(YearArchiveView):
+    model = Hotplace
+    date_field = 'modify_dt'
+    make_object_list = True
+
+class HotplaceMAV(MonthArchiveView):
+    model = Hotplace
+    date_field = 'modify_dt'
+    month_format = '%m'
