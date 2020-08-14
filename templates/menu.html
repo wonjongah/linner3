@@ -88,10 +88,30 @@ body {
 
 <div id="sidebar">
     <ul>
-        <a type="button">My Page</a>
+
         <a type="button" href="{% url 'recipe:recipe_listview' %}">Recipe</a>
         <a type="button" href="{% url 'hotplace:index' %}">Hot Place</a>
-        <a type="button" >My Pick</a>
+        <li class="nav-item dropdown mx-1 btn btn-primary">
+        {% if user.is_active %}
+        <a class="nav-link dropdown-toggle text-white" href="#" data-toggle="dropdown">
+        <i class="fas fa-user"></i>
+            &ensp;{% firstof user.get_short_name user.get_username %}&ensp;</a>
+        <div class="dropdown-menu">
+        <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
+        <a class="dropdown-item" href="{% url 'password_change' %}">
+        Change Password</a>
+        </div>
+        <a type="button">My Page</a>
+        <a type="button">My Pick</a>
+        {% else %}
+        <a class="nav-link dropdown-toggle text-white" href="#" data-toggle="dropdown">
+        <i class="fas fa-user"></i>&ensp;Anonymous&ensp;</a>
+        <div class="dropdown-menu">
+        <a class="dropdown-item" href="{% url 'login' %}">Login</a>
+        <a class="dropdown-item" href="{% url 'signup' %}">Register</a>
+        </div>
+        {% endif %}
+        </li>
     </ul>
 </div>
 <div id="toggle-btn" onclick="toggleSidebar(this)">
