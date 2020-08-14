@@ -25,8 +25,8 @@ class RecipeContent(models.Model):
     # 찜한 수
     Rec_conContent = HTMLField('CONTENT')
     # 글 내용
-
-
+    Rec_conTags = TaggableManager(blank=True)
+    # 글 태그
 
 class YoutubeContent(models.Model):
     You_conId = models.AutoField(primary_key = True)
@@ -46,6 +46,8 @@ class YoutubeContent(models.Model):
     # 찜한 수
     You_conContent = models.TextField('YOUTUBE_CONTENT', default = '')
     # 유튜브 내용(주소)
+    You_conTags = TaggableManager(blank=True)
+    # 유튜브 태그
 
 class Reply(models.Model):
     Rep_id = models.AutoField(primary_key = True)

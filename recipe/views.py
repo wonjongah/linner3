@@ -21,20 +21,34 @@ class RecipeDV(DetailView):
     model = RecipeContent
     context_object_name = 'recipe'
     template_name = 'recipe/recipe_detail.html'
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        # post = context['post']
+        recipe_post = self.get_object()
+        recipe_post.Rec_conReadcount += 1
+        recipe_post.save()
+        return context
 
 class YoutubeDV(DetailView):
     model = YoutubeContent
     context_object_name = 'youtube'
     template_name = 'recipe/youtube_detail.html'
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        # post = context['post']
+        youtube_post = self.get_object()
+        youtube_post.You_conReadcount += 1
+        youtube_post.save()
+        return context
 
 class RecipeCreateView(LoginRequiredMixin, CreateView):
     model = RecipeContent
-    fields = ['Rec_conName', 'Rec_comReadcount', 'Rec_conMemID', 'Rec_conPickCount', 'Rec_conContent']
+    fields = ['Rec_conName', 'Rec_conContent']
     success_url = reverse_lazy('recipe:recipe_listview')
     template_name = 'recipe/recipe_create.html'
 
 class YoutubeCreateView(CreateView):
     model = YoutubeContent
-    fields = ['You_conName', 'You_conReadcount', 'You_conMemID', 'you_conPickCount']
+    fields = ['You_conName',  'You_conContent']
     success_url = reverse_lazy('recipe:recipe_listview')
     template_name = 'recipe/youtube_create.html'
