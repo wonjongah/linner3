@@ -13,9 +13,16 @@ from django.urls import reverse_lazy
 
 
 class RecipeLV(ListView):
-    model = RecipeContent
     context_object_name = 'recipe_list'
     template_name = 'recipe/recipe_list.html'
+    queryset = RecipeContent.objects.all()
+
+
+    def get_context_data(self, **kwargs):
+        context = super(ListView, self).get_context_data(**kwargs)
+        context['youtube_list'] = YoutubeContent.objects.all()
+        # 한 뷰에 여러 개 모델 콘텍스트 가져오고 싶을 때!!!!!!!!!!!!!!!!!!!!!!!
+        return context
 
 
 class RecipeDV(DetailView):

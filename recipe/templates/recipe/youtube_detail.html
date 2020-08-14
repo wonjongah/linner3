@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content%}
+
+<div>
+
+<h1>Youtube List</h1>
+
+<div>
+
+<h1>{{youtube.You_conName}}</h1>
+
+<ul>
+
+ <a>{{youtube.You_conContent | safe}}</a></li>
+
+</ul>
+
+</div>
+
+<a href="{% url 'recipe:recipe_listview' %}">목록으로</a>
+</div>
+
+{% endblock %}
