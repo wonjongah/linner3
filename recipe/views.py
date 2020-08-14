@@ -47,8 +47,17 @@ class RecipeCreateView(CreateView):
     success_url = reverse_lazy('recipe:recipe_listview')
     template_name = 'recipe/recipe_create.html'
 
+    def form_valid(self, form):
+        form.instance.owner = self.request.user
+        return super().form_valid(form)
+
+
 class YoutubeCreateView(CreateView):
     model = YoutubeContent
     fields = ['You_conName',  'You_conContent']
     success_url = reverse_lazy('recipe:recipe_listview')
     template_name = 'recipe/youtube_create.html'
+
+    def form_valid(self, form):
+        form.instance.owner = self.request.user
+        return super().form_valid(form)

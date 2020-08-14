@@ -7,6 +7,14 @@
 <style>
     .hidden{display:none;}
 </style>
+{% if form.errors %}
+<div class="alert alert-danger">
+    <div class="font-weight-bold">
+        Wrong! Please correct the error(s) below.
+    </div>
+    {{ form.errors }}
+</div>
+{% endif %}
 <form action="." method="post" class="card pt-3">{% csrf_token %}
     <div class="form-group row">
         {{ form.Rec_conName| add_label_class:"col-form-label col-sm-2 ml-3 font-weight-bold" }}
@@ -19,8 +27,8 @@
             {{ form.Rec_conContent| add_label_class:"col-form-label col-sm-2 ml-3 font-weight-bold" }}
 
             <div class="col-md-8">
-                <textarea name="" id="" cols="30" rows="10"></textarea>
                 <input name="image" type="file" id="upload" class="hidden" onchange="">
+            {{ form.Rec_conContent|add_class:"form-control" }}
             </div>
             <div class="col-md-4"></div>
         </div>
@@ -36,10 +44,12 @@
     </div>
     <div class="form-group">
         <div class="offset-sm-2 col-sm-5">
-            <a><input type="submit" value="Submit" class="btn btn-info"/>let's go</a>
+            <input type="submit" value="let's go" class="btn btn-info"/>
         </div>
     </div>
 </form>
+
+
 {% endblock %}
 
 {% block extra-script %}
