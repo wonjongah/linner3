@@ -2,7 +2,7 @@
 {% load widget_tweaks %}
 {% block title %}recipe_create.html{% endblock %}
 {% block content %}
-<h1>Post Create/Update</h1>
+<h1>Post Create/Update {{user}}</h1>
 <p class="font-italic">This is a creation or update form for your post.</p>
 <style>
     .hidden{display:none;}
@@ -15,6 +15,8 @@
     {{ form.errors }}
 </div>
 {% endif %}
+<div class="container">
+
 <form action="." method="post" class="card pt-3">{% csrf_token %}
     <div class="form-group row">
         {{ form.Rec_conName| add_label_class:"col-form-label col-sm-2 ml-3 font-weight-bold" }}
@@ -22,7 +24,6 @@
             {{ form.Rec_conName|add_class:"form-control"|attr:"autofocus" }}
         </div>
     </div>
-<div class="container">
         <div class="row">
             {{ form.Rec_conContent| add_label_class:"col-form-label col-sm-2 ml-3 font-weight-bold" }}
 
@@ -32,7 +33,6 @@
             </div>
             <div class="col-md-4"></div>
         </div>
-    </div>
 
 
     <div class="form-group row">
@@ -42,13 +42,16 @@
         </div>
         <small class="form-text text-muted">{{ form.tags.help_text }}</small>
     </div>
+
+
+
     <div class="form-group">
         <div class="offset-sm-2 col-sm-5">
             <input type="submit" value="let's go" class="btn btn-info"/>
         </div>
     </div>
 </form>
-
+</div>
 
 {% endblock %}
 

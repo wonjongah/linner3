@@ -17,10 +17,12 @@ class RecipeLV(ListView):
     context_object_name = 'recipe_list'
     template_name = 'recipe/recipe_list.html'
 
+
 class RecipeDV(DetailView):
     model = RecipeContent
     context_object_name = 'recipe'
     template_name = 'recipe/recipe_detail.html'
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         # post = context['post']
@@ -33,6 +35,7 @@ class YoutubeDV(DetailView):
     model = YoutubeContent
     context_object_name = 'youtube'
     template_name = 'recipe/youtube_detail.html'
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         # post = context['post']
@@ -41,23 +44,23 @@ class YoutubeDV(DetailView):
         youtube_post.save()
         return context
 
-class RecipeCreateView(CreateView):
+class RecipeCreateView(LoginRequiredMixin, CreateView):
     model = RecipeContent
-    fields = ['Rec_conName', 'Rec_conContent']
+    fields = ['Rec_conName', 'Rec_conContent', 'Rec_conTags']
     success_url = reverse_lazy('recipe:recipe_listview')
     template_name = 'recipe/recipe_create.html'
 
     def form_valid(self, form):
-        form.instance.owner = self.request.user
+        form.instance.Rec_conMemID = self.request.user
         return super().form_valid(form)
 
 
-class YoutubeCreateView(CreateView):
+class YoutubeCreateView(LoginRequiredMixin, CreateView):
     model = YoutubeContent
-    fields = ['You_conName',  'You_conContent']
+    fields = ['You_conName',  'You_conContent', 'You_conTags']
     success_url = reverse_lazy('recipe:recipe_listview')
     template_name = 'recipe/youtube_create.html'
 
     def form_valid(self, form):
-        form.instance.owner = self.request.user
+        form.instance.You_conMemID = self.request.user
         return super().form_valid(form)

@@ -1,10 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<p>recipe_detail</p>
-</body>
-</html>
+{% extends "base.html" %}
+{% block content%}
+
+<div>
+
+<h1>Bookmark List</h1>
+
+<div>
+
+<h1>{{recipe.Rec_conName}}</h1>
+
+<ul>
+
+ <a>{{recipe.Rec_conContent | safe}}</a></li>
+
+</ul>
+
+</div>
+
+<a href="{% url 'recipe:recipe_listview' %}">목록으로</a>
+</div>
+
+{% endblock %}

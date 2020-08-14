@@ -2,39 +2,68 @@
 {% block content%}
 
 
-<hr style="margin-left: -50%;margin-right: -50%;">
+<hr style="margin-left: -50%;margin-right: -50%;" xmlns:post="http://www.w3.org/1999/xhtml"
+    xmlns:recipe="http://www.w3.org/1999/xhtml">
 <h1 style="text-align:center"> 태그들 </h1>
 <hr style="margin-left: -50%;margin-right: -50%;">
 <p style="display:inline;font-family:georgia;margin-left:-27%;font-size:50px"> our recipe </p>
-<a href="{% url 'recipe:recipe_create' %}" style="display:inline;font-family:georgia;float:right;margin-right:-20%;font-size:33px;border-width: 2px;" >
+{% if user.is_active %}
+
+<a href="{% url 'recipe:recipe_create' %}"
+   style="display:inline;font-family:georgia;float:right;margin-right:-20%;font-size:33px;border-width: 2px;">
     write </a>
+{% endif %}
+
 <hr style="margin-left: -50%;margin-right: -50%;">
 
 <link href="https://fonts.googleapis.com/css?family=Nunito:200,300,400,600,700,900" rel="stylesheet">
 
 <div class="container">
-  <div class="row">
+    {% with count=1 %}
+<div class="row">
+    {% for recipe in recipe_list %}
+    <a href="{% url 'recipe:recipe_detail' recipe.Rec_conId %}"><ul class="card">
+
     <div class="col-md-4">
-      <div class="card card-1">
-        <h3>Ionic Native</h3>
-        <p>A curated set of   ES5/ES6/TypeScript wrappers for plugins to easily add any native functionality to your Ionic apps.</p>
-      </div>
+        <h2>{{ recipe.Rec_conName }}</h2>
+        {{ recipe.Rec_conModify|date:"N d, Y" }}
+        <p>{{ recipe.Rec_conContent | safe}}</p>
+    </ul></a></div>
+    {% endfor %}</div>
+    {% endwith %}
+
+
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card card-1">
+                <h3>Ionic Native</h3>
+                <p>A curated set of ES5/ES6/TypeScript wrappers for plugins to easily add any native functionality to
+                    your Ionic apps.</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card card-2">
+                <h3>UI Components</h3>
+                <p>Tabs, buttons, inputs, lists, cards, and more! A comprehensive library of mobile UI components, ready
+                    to go.</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card card-3">
+                <h3>Theming</h3>
+                <p>Learn how to easily customize and modify your app’s design to fit your brand across all mobile
+                    platform styles.</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card card-1">
+                <h3>Ionic Native</h3>
+                <p>A curated set of ES5/ES6/TypeScript wrappers for plugins to easily add any native functionality to
+                    your Ionic apps.</p>
+            </div>
+        </div>
     </div>
-    <div class="col-md-4">
-      <div class="card card-2">
-        <h3>UI Components</h3>
-        <p>Tabs, buttons, inputs, lists, cards, and more! A comprehensive library
-          of mobile UI components, ready to go.</p>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="card card-3">
-        <h3>Theming</h3>
-        <p>Learn how to easily customize and modify your app’s design to fit your
-          brand across all mobile platform styles.</p>
-      </div>
-    </div>
-  </div>
+
 </div>
 
 <style>
@@ -129,17 +158,46 @@ body{
   }
 }
 
+
 </style>
 
 <br>
 <hr style="margin-left: -50%;margin-right: -50%;">
 <p style="display:inline;font-family:georgia;margin-left:-27%;font-size:50px"> youtube recipe </p>
-<a href="{% url 'recipe:youtube_create' %}" style="display:inline;font-family:georgia;float:right;margin-right:-20%;font-size:33px;border-width: 2px;">
-    write </a>
+{% if user.is_active %}
 
+<a href="{% url 'recipe:youtube_create' %}"
+   style="display:inline;font-family:georgia;float:right;margin-right:-20%;font-size:33px;border-width: 2px;">
+    write </a>
+{% endif %}
 <hr style="margin-left: -50%;margin-right: -50%;">
 
 
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card card-1">
+                <h3>Ionic Native</h3>
+                <p>A curated set of ES5/ES6/TypeScript wrappers for plugins to easily add any native functionality to
+                    your Ionic apps.</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card card-2">
+                <h3>UI Components</h3>
+                <p>Tabs, buttons, inputs, lists, cards, and more! A comprehensive library
+                    of mobile UI components, ready to go.</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card card-3">
+                <h3>Theming</h3>
+                <p>Learn how to easily customize and modify your app’s design to fit your
+                    brand across all mobile platform styles.</p>
+            </div>
+        </div>
+    </div>
+</div>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
 

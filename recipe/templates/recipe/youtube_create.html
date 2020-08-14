@@ -2,8 +2,11 @@
 {% load widget_tweaks %}
 {% block title %}youtube_create.html{% endblock %}
 {% block content %}
-<h1>Post Create/Update</h1>
+<h1>Youtube Post Create/Update {{user}}</h1>
 <p class="font-italic">This is a creation or update form for your post.</p>
+<style>
+    .hidden{display:none;}
+</style>
 {% if form.errors %}
 <div class="alert alert-danger">
     <div class="font-weight-bold">
@@ -12,6 +15,8 @@
     {{ form.errors }}
 </div>
 {% endif %}
+<div class="container">
+
 <form action="." method="post" class="card pt-3">{% csrf_token %}
     <div class="form-group row">
         {{ form.You_conName| add_label_class:"col-form-label col-sm-2 ml-3 font-weight-bold" }}
@@ -19,33 +24,42 @@
             {{ form.You_conName|add_class:"form-control"|attr:"autofocus" }}
         </div>
     </div>
+        <div class="row">
+            {{ form.You_conContent| add_label_class:"col-form-label col-sm-2 ml-3 font-weight-bold" }}
+
+            <div class="col-md-8">
+                <input name="image" type="file" id="upload" class="hidden" onchange="">
+            {{ form.You_conContent|add_class:"form-control" }}
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+
 
     <div class="form-group row">
-        {{ form.You_conContent| add_label_class:"col-form-label col-sm-2 ml-3 font-weight-bold" }}
+        {{ form.You_conTags| add_label_class:"col-form-label col-sm-2 ml-3 font-weight-bold" }}
         <div class="col-sm-5">
-            {{ form.You_conContent|add_class:"form-control" }}
-        </div>
-    </div>
-    <div class="form-group row">
-        {{ form.you_conTags| add_label_class:"col-form-label col-sm-2 ml-3 font-weight-bold" }}
-        <div class="col-sm-5">
-            {{ form.you_conTags|add_class:"form-control" }}
+            {{ form.You_conTags|add_class:"form-control" }}
         </div>
         <small class="form-text text-muted">{{ form.tags.help_text }}</small>
     </div>
+
+
+
     <div class="form-group">
         <div class="offset-sm-2 col-sm-5">
-            <input type="submit" value="Submit" class="btn btn-info"/>
+            <input type="submit" value="let's go" class="btn btn-info"/>
         </div>
     </div>
 </form>
+</div>
+
 {% endblock %}
 
 {% block extra-script %}
- <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js"
- referrerpolicy="origin"></script>
+
  <script>
-  $(document).ready(function() {
+
+
         tinymce.init({
           selector: "textarea",
           theme: "modern",
@@ -82,6 +96,7 @@
             content: 'Test 2'
           }]
         });
-      });
+
+
 </script>
 {% endblock %}
