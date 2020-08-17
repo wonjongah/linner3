@@ -153,9 +153,9 @@
 <!--				  aria-hidden="true"></span>-->
 
 	   {% if user in youtube.You_conLikesUser.all %}
-    <i id="heart" class="fas fa-heart"></i>
+    <i id="you_heart" class="fas fa-heart"></i>
   {% else %}
-    <i id="heart" class="far fa-heart"></i>
+    <i id="you_heart" class="far fa-heart"></i>
   {% endif %}
 	</a>
     <p id="count-{{ youtube.You_conId }}" style="font:bold 1em;">
@@ -172,15 +172,15 @@
             dataType: "json",
             success: function (response) { // 성공
                 alert(response.message);
-                $("#count-" + pk).html("좋아요&nbsp;" + response.likes_count + "개"); // 좋아요 개수 변경
+                $("#count-" + pk).html("좋아요&nbsp;" + response.you_likes_count + "개"); // 좋아요 개수 변경
                 if (response.message == "좋아요")
                     //좋아요 눌렀을 때
                     {
-                        $('#heart').attr("class", "fas fa-heart")
+                        $('#you_heart').attr("class", "fas fa-heart")
                     } else if (response.message == "좋아요 취소")
                     //좋아요 상태에서 다시 눌렀을 때
                     {
-                        $('#heart').attr("class", "far fa-heart")
+                        $('#you_heart').attr("class", "far fa-heart")
                     }
             },
             error: function (request, status, error) { // 실패

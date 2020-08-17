@@ -124,7 +124,7 @@ def recipe_like(request):
         recipe.Rec_conLikesUser.add(user)
         message = '좋아요'
 
-    context = {'likes_count':recipe.rec_count_likes_user(), 'message': message}
+    context = {'rec_likes_count':recipe.rec_count_likes_user(), 'message': message}
     return HttpResponse(json.dumps(context), content_type="application/json")
 
 
@@ -142,5 +142,5 @@ def youtube_like(request):
         youtube.You_conLikesUser.add(user)
         message = '좋아요'
 
-    context = {'likes_count':youtube.you_count_likes_user(), 'message': message}
+    context = {'you_likes_count':youtube.you_count_likes_user(), 'message': message}
     return HttpResponse(json.dumps(context), content_type="application/json")
