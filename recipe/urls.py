@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.urls import path
 from recipe.views import *
+from . import views
 
 
 app_name = 'recipe'
@@ -17,5 +18,5 @@ urlpatterns = [
     path('youtube_update/<int:pk>/', YoutubeUpdateView.as_view(), name="youtube_update"),
     path('recipe_delete/<int:pk>/', RecipeDeleteView.as_view(), name="recipe_delete"),
     path('youtube_delete/<int:pk>/', YoutubeDeleteView.as_view(), name="youtube_delete"),
-
+    path('recipe_like/', views.recipe_like, name='recipe_like'),
 ]

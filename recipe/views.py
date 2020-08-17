@@ -10,6 +10,11 @@ from django.views.generic import CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from mysite.views import OwnerOnlyMixin, OwnerOnlyMixin2
+import json
+from django.http import HttpResponse
+from django.shortcuts import get_object_or_404
+from django.contrib.auth.decorators import login_required
+from django.views.decorators.http import require_POST
 
 
 
@@ -94,6 +99,7 @@ class RecipeDeleteView(OwnerOnlyMixin, DeleteView):
 
     def get(self, request, *args, **kwargs):
         return self.post(request, *args, **kwargs)
+    # 삭제창 굳이 안 보여주게!!!!!!!!!!!!!!!!!!
 
 class YoutubeDeleteView(OwnerOnlyMixin2, DeleteView):
 
@@ -102,3 +108,21 @@ class YoutubeDeleteView(OwnerOnlyMixin2, DeleteView):
 
     def get(self, request, *args, **kwargs):
         return self.post(request, *args, **kwargs)
+
+
+@login_required
+@require_POST
+def recipe_like(request):
+    pk = request.POST.get('pk', None)
+    recipe = get_object_or_404(RecipeContent, pk=pk)
+    user = request.user
+
+    if recipe.Rec_conLikesUser.filter(id=user.id).exists():
+        recipe.Rec_conLikesUser.remove(user)
+        message = '좋아요 취소'
+    else:
+        recipe.Rec_conLikesUser.add(user)
+        message = '좋아요'
+
+    context = {'likes_count':recipe.rec_count_likes_user(), 'message': message}
+    return HttpResponse(json.dumps(context), content_type="application/json")

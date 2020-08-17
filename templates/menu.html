@@ -87,9 +87,7 @@
 <div id="sidebar">
     <ul>
 
-        <a type="button" href="{% url 'recipe:recipe_listview' %}">Recipe</a>
-        <a type="button" href="{% url 'hotplace:index' %}">Hot Place</a>
-        <li class="nav-item dropdown mx-1 btn btn-primary">
+        <li class="nav-item dropdown mx-1">
         {% if user.is_active %}
         <a class="nav-link dropdown-toggle text-white" href="#" data-toggle="dropdown">
         <i class="fas fa-user"></i>
@@ -109,6 +107,9 @@
         <a class="dropdown-item" href="{% url 'signup' %}">Register</a>
         </div>
         {% endif %}
+        <a type="button" href="{% url 'recipe:recipe_listview' %}">Recipe</a>
+        <a type="button" href="{% url 'hotplace:index' %}">Hot Place</a>
+
         </li>
     </ul>
 </div>

@@ -24,10 +24,10 @@
     {% for recipe in recipe_list %}
     <a href="{% url 'recipe:recipe_detail' recipe.Rec_conId %}">
 
-    <div class="col-md-4 py-6"><ul class="card" style="width:18em;">
+    <div class="col-md-4 py-6"><ul class="card" style="width:18em;max-height:300px;min-height:300px">
         <h2>{{ recipe.Rec_conName }}</h2>
         {{ recipe.Rec_conModify|date:"N d, Y" }}
-        <p>{{ recipe.Rec_conContent | safe}}</p>
+        <p>{{ recipe.get_recipe_summary | safe}}</p>
     </ul></div></a>
     {% endfor %}</div>
     {% endwith %}
@@ -159,6 +159,7 @@ body{
 }
 
 
+
 </style>
 
 <br>
@@ -172,17 +173,17 @@ body{
 {% endif %}
 <hr style="margin-left: -50%;margin-right: -50%;">
 
-
 <div class="container">
         {% with count=1 %}
 <div class="row">
+
     {% for youtube in youtube_list %}
     <a href="{% url 'recipe:youtube_detail' youtube.You_conId %}">
 
-    <div class="col-4 py-3"><ul class="card" style="width:18em;">
+    <div class="col-4 py-3"><ul class="card" style="width:18em;max-height:300px;min-height:300px;">
         <h2>{{ youtube.You_conName }}</h2>
         {{ youtube.You_conModify|date:"N d, Y" }}
-        <p>{{ youtube.You_conContent | safe}}</p>
+        <p>{{ youtube.get_you_summary | safe}}</p>
     </ul></div></a>
     {% endfor %}</div>
     {% endwith %}
@@ -209,6 +210,7 @@ body{
             </div>
         </div>
     </div>
+
 </div>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 

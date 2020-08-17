@@ -5,6 +5,7 @@ from taggit.managers import TaggableManager
 from django.contrib.auth.models import User
 from django.utils.text import slugify
 from tinymce.models import HTMLField
+from django.conf import settings
 
 
 class RecipeContent(models.Model):
@@ -27,6 +28,11 @@ class RecipeContent(models.Model):
     # 글 내용
     Rec_conTags = TaggableManager(blank=True)
     # 글 태그
+    Rec_conLikesUser = models.ManyToManyField(
+        settings.AUTH_USER_MODEL,
+        blank=True,
+        related_name='Rec_conLikesUser'
+    )
 
     class Meta:
 
@@ -48,6 +54,16 @@ class RecipeContent(models.Model):
     def get_next(self):  # 다음 데이터 추출
 
       return self.get_next_by_Rec_conModify()
+
+    def get_recipe_summary(self):
+        return self.Rec_conContent[:100]
+
+    # 글의 100자까지만 잘라서 보여주기
+
+    def rec_count_likes_user(self):
+        return self.Rec_conLikesUser.count()
+
+
 
 class YoutubeContent(models.Model):
     You_conId = models.AutoField(primary_key = True)
@@ -92,6 +108,11 @@ class YoutubeContent(models.Model):
     def get_next(self):  # 다음 데이터 추출
 
       return self.get_next_by_You_conModify()
+
+    def get_you_summary(self):
+        return self.You_conContent[:100]
+
+    # 글의 100자까지만 잘라서 보여주기
 
 
 class Reply(models.Model):
