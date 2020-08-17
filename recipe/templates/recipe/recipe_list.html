@@ -24,7 +24,7 @@
     {% for recipe in recipe_list %}
     <a href="{% url 'recipe:recipe_detail' recipe.Rec_conId %}">
 
-    <div class="col-4 py-3"><ul class="card" style="width:18em;">
+    <div class="col-md-4 py-6"><ul class="card" style="width:18em;">
         <h2>{{ recipe.Rec_conName }}</h2>
         {{ recipe.Rec_conModify|date:"N d, Y" }}
         <p>{{ recipe.Rec_conContent | safe}}</p>
@@ -166,7 +166,7 @@ body{
 <p style="display:inline;font-family:georgia;margin-left:-27%;font-size:50px"> youtube recipe </p>
 {% if user.is_active %}
 
-<a href="{% url 'recipe:youtube_create' %}"
+<a href="{% url 'recipe:youtube_create' %}">
     <p style="display:inline;font-family:georgia;float:right;margin-right:-20%;font-size:33px;border-width: 2px;">write</p>
      </a>
 {% endif %}

@@ -13,5 +13,9 @@ urlpatterns = [
     path('youtube/<int:pk>', YoutubeDV.as_view(), name='youtube_detail'),
     path('add_recipe/', RecipeCreateView.as_view(), name='recipe_create'),
     path('add_youtube/', YoutubeCreateView.as_view(), name='youtube_create'),
+    path('recipe_update/<int:pk>/', RecipeUpdateView.as_view(), name="recipe_update"),
+    path('youtube_update/<int:pk>/', YoutubeUpdateView.as_view(), name="youtube_update"),
+    path('recipe_delete/<int:pk>/', RecipeDeleteView.as_view(), name="recipe_delete"),
+    path('youtube_delete/<int:pk>/', YoutubeDeleteView.as_view(), name="youtube_delete"),
 
 ]

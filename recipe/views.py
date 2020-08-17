@@ -9,6 +9,7 @@ from recipe.models import RecipeContent, YoutubeContent
 from django.views.generic import CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
+from mysite.views import OwnerOnlyMixin, OwnerOnlyMixin2
 
 
 
@@ -16,12 +17,13 @@ class RecipeLV(ListView):
     context_object_name = 'recipe_list'
     template_name = 'recipe/recipe_list.html'
     queryset = RecipeContent.objects.all()
-
+    paginate_by = 3
 
     def get_context_data(self, **kwargs):
         context = super(ListView, self).get_context_data(**kwargs)
         context['youtube_list'] = YoutubeContent.objects.all()
         # 한 뷰에 여러 개 모델 콘텍스트 가져오고 싶을 때!!!!!!!!!!!!!!!!!!!!!!!
+
         return context
 
 
@@ -55,7 +57,7 @@ class RecipeCreateView(LoginRequiredMixin, CreateView):
     model = RecipeContent
     fields = ['Rec_conName', 'Rec_conContent', 'Rec_conTags']
     success_url = reverse_lazy('recipe:recipe_listview')
-    template_name = 'recipe/recipe_create.html'
+    template_name = 'recipe/recipecontent_form.html'
 
     def form_valid(self, form):
         form.instance.Rec_conMemID = self.request.user
@@ -66,8 +68,37 @@ class YoutubeCreateView(LoginRequiredMixin, CreateView):
     model = YoutubeContent
     fields = ['You_conName',  'You_conContent', 'You_conTags']
     success_url = reverse_lazy('recipe:recipe_listview')
-    template_name = 'recipe/youtube_create.html'
+    template_name = 'recipe/youtubecontent_form.html'
 
     def form_valid(self, form):
         form.instance.You_conMemID = self.request.user
         return super().form_valid(form)
+
+
+class RecipeUpdateView(OwnerOnlyMixin, UpdateView):
+
+    model = RecipeContent
+    fields = ['Rec_conName', 'Rec_conContent', 'Rec_conTags']
+    success_url = reverse_lazy('recipe:recipe_listview')
+
+class YoutubeUpdateView(OwnerOnlyMixin2, UpdateView):
+
+    model = YoutubeContent
+    fields = ['You_conName',  'You_conContent', 'You_conTags']
+    success_url = reverse_lazy('recipe:recipe_listview')
+
+class RecipeDeleteView(OwnerOnlyMixin, DeleteView):
+
+    model = RecipeContent
+    success_url = reverse_lazy('recipe:recipe_listview')
+
+    def get(self, request, *args, **kwargs):
+        return self.post(request, *args, **kwargs)
+
+class YoutubeDeleteView(OwnerOnlyMixin2, DeleteView):
+
+    model = YoutubeContent
+    success_url = reverse_lazy('recipe:recipe_listview')
+
+    def get(self, request, *args, **kwargs):
+        return self.post(request, *args, **kwargs)
