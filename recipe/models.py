@@ -45,7 +45,9 @@ class RecipeContent(models.Model):
 
     def get_absolute_url(self):  # 현재 데이터의 절대 경로 추출
 
-     return ''  # reverse('blog:post_detail', args=(self.slug,))
+      return '' # reverse('recipe:recipe_detail', args=(self.pk,))
+         # return reverse('blog:post_detail', args=(self.slug,))
+
 
     def get_previous(self):  # 이전 데이터 추출
 

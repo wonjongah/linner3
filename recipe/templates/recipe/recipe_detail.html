@@ -137,9 +137,26 @@
 
 
 
-    <input type="button" class="btn btn-info btn-sm like" name="{{ recipe.Rec_conId }}" value="Like"
-        style="margin-top: 7px">
-    <p id="count-{{ recipe.Rec_conId }}" style="font:bold 1em; margin-top: 3px">
+
+
+
+    <a type="button" class="btn btn-sm like" name="{{ recipe.Rec_conId }}" value="Like">
+<!--	  <span-->
+<!--				  class="glyphicon-->
+<!--				    {% if user in recipe.Rec_conLikesUser.all %}-->
+<!--				      glyphicon-heart-->
+<!--						{% else %}-->
+<!--							glyphicon-heart-empty-->
+<!--						{% endif %}"-->
+<!--				  aria-hidden="true"></span>-->
+
+	   {% if user in recipe.Rec_conLikesUser.all %}
+    <i i="heart" class="fas fa-heart"></i>
+  {% else %}
+    <i id="heart" class="far fa-heart"></i>
+  {% endif %}
+	</a>
+    <p id="count-{{ recipe.Rec_conId }}" style="font:bold 1em;">
         좋아요&nbsp;{{ recipe.Rec_conLikesUser.all.count }}개</p>
 
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -154,6 +171,15 @@
             success: function (response) { // 성공
                 alert(response.message);
                 $("#count-" + pk).html("좋아요&nbsp;" + response.likes_count + "개"); // 좋아요 개수 변경
+                if (response.message == "좋아요")
+                    //좋아요 눌렀을 때
+                    {
+                        $('#heart').attr("class", "fas fa-heart")
+                    } else if (response.message == "좋아요 취소")
+                    //좋아요 상태에서 다시 눌렀을 때
+                    {
+                        $('#heart').attr("class", "far fa-heart")
+                    }
             },
             error: function (request, status, error) { // 실패
                 alert("로그인이 필요합니다.")
@@ -161,6 +187,12 @@
             },
         });
     })
+
+
+
+
+
+
 </script>
 
 
