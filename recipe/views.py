@@ -126,3 +126,21 @@ def recipe_like(request):
 
     context = {'likes_count':recipe.rec_count_likes_user(), 'message': message}
     return HttpResponse(json.dumps(context), content_type="application/json")
+
+
+@login_required
+@require_POST
+def youtube_like(request):
+    pk = request.POST.get('pk', None)
+    youtube = get_object_or_404(YoutubeContent, pk=pk)
+    user = request.user
+
+    if youtube.You_conLikesUser.filter(id=user.id).exists():
+        youtube.You_conLikesUser.remove(user)
+        message = '좋아요 취소'
+    else:
+        youtube.You_conLikesUser.add(user)
+        message = '좋아요'
+
+    context = {'likes_count':youtube.you_count_likes_user(), 'message': message}
+    return HttpResponse(json.dumps(context), content_type="application/json")

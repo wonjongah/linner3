@@ -88,7 +88,10 @@ class YoutubeContent(models.Model):
     You_conTags = TaggableManager(blank=True)
     # 유튜브 태그
 
-
+    You_conLikesUser = models.ManyToManyField(
+        settings.AUTH_USER_MODEL,
+        blank=True,
+        related_name='You_conLikesUser')
 
     class Meta:
 
@@ -115,6 +118,9 @@ class YoutubeContent(models.Model):
         return self.You_conContent[:100]
 
     # 글의 100자까지만 잘라서 보여주기
+
+    def you_count_likes_user(self):
+        return self.You_conLikesUser.count()
 
 
 class Reply(models.Model):

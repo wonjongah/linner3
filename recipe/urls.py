@@ -19,4 +19,6 @@ urlpatterns = [
     path('recipe_delete/<int:pk>/', RecipeDeleteView.as_view(), name="recipe_delete"),
     path('youtube_delete/<int:pk>/', YoutubeDeleteView.as_view(), name="youtube_delete"),
     path('recipe_like/', views.recipe_like, name='recipe_like'),
+    path('youtube_like/', views.youtube_like, name='youtube_like'),
+
 ]
