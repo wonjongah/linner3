@@ -1,0 +1,10 @@
+<ul>
+    {% for hotple in object_list %}
+    <li>{{ hotple.modify_dt|date:"Y-m-d"}}
+        <a href="{{hotple.get_absolute_url}}">
+            <strong>{{ hotple.title }}</strong>
+        </a>
+    </li>
+    {% endfor %}
+
+</ul>

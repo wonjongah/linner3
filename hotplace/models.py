@@ -7,17 +7,13 @@ from tinymce.models import HTMLField
 from django.core.validators import MinValueValidator,MaxValueValidator
 #태그
 from taggit.managers import TaggableManager
+#유저
+from django.contrib.auth.models import User
+from django.utils.text import slugify
+
 
 # Create your models here.
 class Hotplace(models.Model):
-    # id = models.IntegerField(verbose_name='HOT_ID', primary_key=True)
-    # title = models.CharField('HOT_TITLE', max_length=100)
-    # slug = models.SlugField('SLUG',unique=True,allow_unicode=True,help_text ='one word for title alias.')
-    # name = models.CharField('HOT_NAME', max_length=15)
-     # 별점
-    # content = models.TextField('HOT_CONTENT')  # content = HTMLField('CONTENT')
-    # create_dt = models.DateTimeField('HOT_CREATE_DATE', auto_now_add=True)
-    # modify_dt = models.DateTimeField('HOT_MODIFY_DATE')
 
     title = models.CharField('TITLE', max_length=100)
     slug = models.SlugField('SLUG',unique=True,allow_unicode=True,help_text ='one word for title alias.')
@@ -26,9 +22,12 @@ class Hotplace(models.Model):
     rating = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(5)],default=1)
     content = HTMLField('CONTENT')
     create_dt = models.DateTimeField('CREATE_DATE', auto_now_add=True)
-    modify_dt = models.DateTimeField('MODIFY_DATE')
+    modify_dt = models.DateTimeField('MODIFY_DATE',auto_now=True)
 
     tags = TaggableManager(blank=True)
+
+    owner = models.ForeignKey(User,on_delete=models.CASCADE,blank=True,null=True)
+
 
     class Meta:
         verbose_name = 'hotplace'
@@ -48,3 +47,17 @@ class Hotplace(models.Model):
 
     def get_next(self):
         return self.get_next_by_modify_dt()
+
+    def save(self,*args,**kwargs):
+        self.slug = slugify(self.title,allow_unicode=True)
+        super().save(*args,**kwargs)
+
+
+class HotplaceAttachFile(models.Model):
+    post = models.ForeignKey(Hotplace,on_delete=models.CASCADE,related_name="files",verbose_name='Hotplace',blank=True,null=True)
+    upload_file = models.FileField(upload_to="%Y/%m/%d",null=True,blank=True,verbose_name='파일')
+    filename = models.CharField(max_length=64,null=True,verbose_name='첨부파일명')
+    content_type = models.CharField(max_length=128,null=True,verbose_name='MIME TYPE')
+    size = models.IntegerField('파일 크기')
+    def __str__(self):
+        return self.filename

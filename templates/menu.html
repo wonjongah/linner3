@@ -87,19 +87,19 @@
 <div id="sidebar">
     <ul>
 
-        <li class="nav-item dropdown mx-1">
+        <a type="button" href="{% url 'recipe:recipe_listview' %}">Recipe</a>
+        <a type="button" href="{% url 'hotplace:index' %}">Hot Place</a>
+        <li class="nav-item dropdown mx-1 btn btn-primary">
         {% if user.is_active %}
         <a class="nav-link dropdown-toggle text-white" href="#" data-toggle="dropdown">
         <i class="fas fa-user"></i>
-            {% firstof user.get_short_name user.get_username %}&ensp;</a>
+            &ensp;{% firstof user.get_short_name user.get_username %}&ensp;</a>
         <div class="dropdown-menu">
         <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
         <a class="dropdown-item" href="{% url 'password_change' %}">
         Change Password</a>
         </div>
-        <a class="btn btn-primary"  href="{% url 'user:profile' user.id %}">
-            <span class="glyphicon glyphicon-heart"></span>
-            My Page</a>
+        <a type="button">My Page</a>
         <a type="button">My Pick</a>
         {% else %}
         <a class="nav-link dropdown-toggle text-white" href="#" data-toggle="dropdown">
@@ -109,9 +109,6 @@
         <a class="dropdown-item" href="{% url 'signup' %}">Register</a>
         </div>
         {% endif %}
-        <a type="button" href="{% url 'recipe:recipe_listview' %}">Recipe</a>
-        <a type="button" href="{% url 'hotplace:index' %}">Hot Place</a>
-
         </li>
     </ul>
 </div>

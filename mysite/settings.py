@@ -129,8 +129,9 @@ LANGUAGE_CODE = 'ko'
 
 TIME_ZONE = 'Asia/Seoul'
 USE_TZ = False
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 # 프로젝트 디렉토리 밑에 있다
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
