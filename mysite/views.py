@@ -1,8 +1,11 @@
+from django.shortcuts import redirect
+from django.views import generic
 from django.views.generic import TemplateView, CreateView
 from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import AccessMixin
 from django.views.defaults import permission_denied
+from .form import CreateUserForm
 
 
 # 순수하게 html 템플릿만 운영할 수 있도록 도와주는
@@ -10,9 +13,10 @@ from django.views.defaults import permission_denied
 
 class HomeView(TemplateView):
     template_name = 'home.html'
+
 class UserCreateView(CreateView):
     template_name = 'registration/signup.html'
-    form_class = UserCreationForm
+    form_class = CreateUserForm
     success_url = reverse_lazy('signup_done')
 
 class UserCreateDoneTV(TemplateView):

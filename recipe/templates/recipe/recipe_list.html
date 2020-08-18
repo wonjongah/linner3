@@ -28,6 +28,7 @@
         <h2>{{ recipe.Rec_conName }}</h2>
         {{ recipe.Rec_conModify|date:"N d, Y" }}
         <p>{{ recipe.Rec_conContent | safe}}</p>
+        <p>{{ recipe.Rec_conMemID_id }}</p>
     </ul></div></a>
     {% endfor %}</div>
     {% endwith %}
