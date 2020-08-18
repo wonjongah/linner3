@@ -30,6 +30,7 @@
 
 
 
+
 </style>
 {% endblock %}
 
@@ -53,14 +54,10 @@
             <div class="col-lg-6  col-md-6 col-sm-12 my-3">
                 <div class="card">
                     <div class="card-horizontal">
-                        <div class="img-square-wrapper">
-                            <a href="{% url 'hotplace:detail' hotplace.id %}" class="card-link stretched-link"
-                               alt="IMG">
-                                Big picture
-                            </a>
-                        </div>
+
                         <div class="card-body">
-                            <h4 class="card-title">{{hotplace.title}}</h4>
+                            <h4 class="card-title">
+                                <a href="{% url 'hotplace:detail' hotplace.id %}" class="card-link stretched-link">{{hotplace.title}}</a></h4>
                             <div style="height:15px;">
                                 <div class="star_back">
                                     <div class="star" style="width:calc(20% * {{hotplace.rating}})"></div>
@@ -78,6 +75,13 @@
                                 {% endfor %}
 
                             </div>
+                        </div>
+                        <div class="img-square-wrapper">
+                            {% for file in hotplace.files.all|slice:":1" %}
+                            <a href="{% url 'hotplace:detail' hotplace.id %}" class="card-link stretched-link">
+                                <img id="image" src="{% url 'hotplace:download' file.id %}" style="height:100%; width:100%;">
+                            </a>
+                            {% endfor %}
 
 
                         </div>
@@ -89,10 +93,7 @@
         </div>
 
 
-
-
-
     </div>
 </div>
 
-    {% endblock %}
+{% endblock %}

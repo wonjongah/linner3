@@ -19,9 +19,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cf04dd3a-4c77-47ad-a40b-365061ab0895" name="기본 변경 목록" comment="5">
+    <list default="true" id="cf04dd3a-4c77-47ad-a40b-365061ab0895" name="기본 변경 목록" comment="hotplace_detail 사진추가&#10;이전 다음추가">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hotplace/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/hotplace/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hotplace/templates/hotplace/hotplace_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/hotplace/templates/hotplace/hotplace_detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hotplace/templates/hotplace/hotplace_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/hotplace/templates/hotplace/hotplace_form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hotplace/templates/hotplace/hotplace_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/hotplace/templates/hotplace/hotplace_list.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +77,14 @@
       <option name="project" value="LOCAL" />
       <updated>1597728230410</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="hotplace_detail 사진추가&#10;이전 다음추가">
+      <created>1597738515285</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1597738515285</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -91,7 +101,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="5" />
-    <option name="LAST_COMMIT_MESSAGE" value="5" />
+    <MESSAGE value="hotplace_detail 사진추가&#10;이전 다음추가" />
+    <option name="LAST_COMMIT_MESSAGE" value="hotplace_detail 사진추가&#10;이전 다음추가" />
   </component>
   <component name="WindowStateProjectService">
     <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1597725231875">
@@ -106,14 +117,18 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="573" y="280" key="MultipleFileMergeDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1597726399814" />
+    <state x="1265" y="233" key="RollbackChangesDialog" timestamp="1597739061263">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1265" y="233" key="RollbackChangesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1597739061263" />
     <state x="461" y="164" key="SettingsEditor" timestamp="1597710216429">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1597710216429" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1597728242579">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1597738518537">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1597728242579" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1597738518537" />
     <state x="776" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1597726643707">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
