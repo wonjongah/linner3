@@ -20,20 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cf04dd3a-4c77-47ad-a40b-365061ab0895" name="기본 변경 목록" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/linner4.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/linner.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe/templates/recipe/recipe_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/recipe/templates/recipe/recipe_detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe/templates/recipe/recipe_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/recipe/templates/recipe/recipe_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe/templates/recipe/recipecontent_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/recipe/templates/recipe/recipecontent_form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe/templates/recipe/youtube_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/recipe/templates/recipe/youtube_detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe/templates/recipe/youtubecontent_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/recipe/templates/recipe/youtubecontent_form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/pagenation.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/pagenation.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,6 +37,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -78,11 +67,28 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1597725231875">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1597725231875" />
+    <state x="184" y="86" key="MergeDialog" timestamp="1597726399807">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="184" y="86" key="MergeDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1597726399807" />
+    <state x="573" y="280" key="MultipleFileMergeDialog" timestamp="1597726399814">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="573" y="280" key="MultipleFileMergeDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1597726399814" />
     <state x="461" y="164" key="SettingsEditor" timestamp="1597710216429">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1597710216429" />
+    <state x="768" y="262" key="git4idea.branch.GitSmartOperationDialog" timestamp="1597726305803">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="768" y="262" key="git4idea.branch.GitSmartOperationDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1597726305803" />
   </component>
 </project>
