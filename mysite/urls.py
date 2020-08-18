@@ -14,16 +14,18 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path,include
+from django.urls import path, include
+from django.conf.urls import url
+from mysite.views import HomeView, UserCreateView, UserCreateDoneTV
 
-from hotplace.views import HotplaceLV,HotplaceDV
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-
-    #hotplace
+    path('', HomeView.as_view(), name='home'),
+    path('recipe/', include('recipe.urls')),
     path('hotplace/', include('hotplace.urls')),
-
-    path('tinymce/', include('tinymce.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('accounts/signup/', UserCreateView.as_view(), name='signup'),
+    path('accounts/signup/done/', UserCreateDoneTV.as_view(), name='signup_done'),
 
 ]
