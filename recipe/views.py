@@ -5,6 +5,7 @@ from django.shortcuts import render
 from django.views.generic import ListView, DetailView
 # 부모클래스로 리스트뷰(목록보겠다)랑 디테일뷰(한 개를 자세히 보겠다)
 from recipe.models import RecipeContent, YoutubeContent
+from hotplace.models import Hotplace
 
 from django.views.generic import CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -15,6 +16,12 @@ from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.http import require_POST
+
+from django.views.generic import FormView
+from django.db.models import Q
+from django.shortcuts import render
+from recipe.forms import PostSearchForm
+
 
 
 
@@ -144,3 +151,63 @@ def youtube_like(request):
 
     context = {'you_likes_count':youtube.you_count_likes_user(), 'message': message}
     return HttpResponse(json.dumps(context), content_type="application/json")
+
+
+# # --- FormView
+# class SearchFormView(FormView):
+#
+#
+#     form_class = PostSearchForm
+#
+#     template_name = 'recipe/post_search.html'
+#
+#     def form_valid(self, form):
+#
+#
+#         searchWord = form.cleaned_data['search_word']
+#
+# # 1
+#         post_list = RecipeContent.objects.filter(
+#
+#             Q(Rec_conName__icontains=searchWord) |
+#
+#             Q(Rec_conContent__icontains=searchWord)
+#
+#         ).distinct()
+# # 2
+#
+#         you_list = YoutubeContent.objects.filter(
+#
+#             Q(You_conName__icontains=searchWord) |
+#
+#             Q(You_conContent__icontains=searchWord)
+#
+#         ).distinct()
+#
+# # 3
+#
+#         hot_list = Hotplace.objects.filter(
+#
+#             Q(title__icontains=searchWord) |
+#
+#             Q(content__icontains=searchWord)
+#
+#         ).distinct()
+#
+#
+#
+#
+#         context = {}
+#
+#         context['form'] = form
+#
+#         context['search_term'] = searchWord
+#
+#         context['recipe_search'] = post_list
+#
+#         context['youtube_search'] = you_list
+#
+#         context['hot_search'] = hot_list
+#
+#
+#         return render(self.request, self.template_name, context)

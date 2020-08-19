@@ -11,7 +11,7 @@ from django.conf import settings
 class RecipeContent(models.Model):
     Rec_conId = models.AutoField(primary_key = True)
     # 글번호
-    Rec_conName = models.CharField(verbose_name='TITLE', max_length=50)
+    Rec_conName = models.CharField(verbose_name='TITLE', max_length=50, help_text="제목")
     # 글제목
     Rec_conReadcount = models.IntegerField(default=0)
     # 조회수

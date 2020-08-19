@@ -1,4 +1,4 @@
-from django.views.generic import TemplateView, CreateView
+from django.views.generic import TemplateView, CreateView, FormView
 from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse_lazy
 
@@ -6,6 +6,13 @@ from django.urls import reverse_lazy
 from django.contrib.auth.mixins import AccessMixin
 from django.views.defaults import permission_denied
 from .form import CreateUserForm
+from recipe.models import RecipeContent, YoutubeContent
+from hotplace.models import Hotplace
+
+from django.views.generic import FormView
+from django.db.models import Q
+from django.shortcuts import render
+from .forms import PostSearchForm
 
 # 순수하게 html 템플릿만 운영할 수 있도록 도와주는
 # 공통 사용할 것~~~~~~~~~~~~~~~~~
@@ -14,9 +21,10 @@ from .form import CreateUserForm
 
 class HomeView(TemplateView):
     template_name = 'home.html'
+
 class UserCreateView(CreateView):
     template_name = 'registration/signup.html'
-    form_class = UserCreationForm
+    form_class = CreateUserForm
     success_url = reverse_lazy('signup_done')
 
 class UserCreateDoneTV(TemplateView):
@@ -50,3 +58,64 @@ class OwnerOnlyMixin2(AccessMixin):
         if self.request.user != self.object.You_conMemID:
             self.handle_no_permission()
         return super().get(request, *args, **kwargs)
+
+
+
+# --- FormView
+class SearchFormView(FormView):
+
+
+    form_class = PostSearchForm
+
+    template_name = 'post_search.html'
+
+    def form_valid(self, form):
+
+
+        searchWord = form.cleaned_data['search_word']
+
+# 1
+        post_list = RecipeContent.objects.filter(
+
+            Q(Rec_conName__icontains=searchWord) |
+
+            Q(Rec_conContent__icontains=searchWord)
+
+        ).distinct()
+# 2
+
+        you_list = YoutubeContent.objects.filter(
+
+            Q(You_conName__icontains=searchWord) |
+
+            Q(You_conContent__icontains=searchWord)
+
+        ).distinct()
+
+# 3
+
+        hot_list = Hotplace.objects.filter(
+
+            Q(title__icontains=searchWord) |
+
+            Q(content__icontains=searchWord)
+
+        ).distinct()
+
+
+
+
+        context = {}
+
+        context['form'] = form
+
+        context['search_term'] = searchWord
+
+        context['recipe_search'] = post_list
+
+        context['youtube_search'] = you_list
+
+        context['hot_search'] = hot_list
+
+
+        return render(self.request, self.template_name, context)
