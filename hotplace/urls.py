@@ -11,7 +11,7 @@ urlpatterns=[
     # Example :/hotplace/tag
     path('tag',TagCloudTV.as_view(),name='tag_cloud'),
     # Example :/hotplace/tag/tagname/
-    path('tag.<str:tag>',TaggedObjectLV.as_view(),name='tagged_object_list'),
+    path('tag/<str:tag>',TaggedObjectLV.as_view(),name='tagged_object_list'),
 
     #Archive
     path('archive/',HotplaceAV.as_view(),name='hotplace_archive'),

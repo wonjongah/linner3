@@ -15,7 +15,7 @@ from django.utils.text import slugify
 # Create your models here.
 class Hotplace(models.Model):
 
-    title = models.CharField('TITLE', max_length=30,default="제목을 입력하세요")
+    title = models.CharField('TITLE', max_length=30, help_text="제목을 입력하세요")
     slug = models.SlugField('SLUG',unique=True,allow_unicode=True,help_text ='one word for title alias.')
     name = models.CharField('NAME', max_length=15)
     # 별점)
@@ -38,7 +38,7 @@ class Hotplace(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return ''  #reverse('')
+        return reverse('hotplace:detail',args=(self.slug,))
 
 
     def get_previous(self):

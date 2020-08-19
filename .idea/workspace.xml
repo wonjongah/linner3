@@ -19,12 +19,18 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cf04dd3a-4c77-47ad-a40b-365061ab0895" name="기본 변경 목록" comment="hotplace_detail 사진추가&#10;이전 다음추가">
+    <list default="true" id="cf04dd3a-4c77-47ad-a40b-365061ab0895" name="기본 변경 목록" comment="hotplace_detail 방향키추가&#10;리스트에 사진추가">
+      <change afterPath="$PROJECT_DIR$/hotplace/templates/kakao_map.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hotplace/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/hotplace/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hotplace/templates/hotplace/hotplace_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/hotplace/templates/hotplace/hotplace_detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hotplace/templates/hotplace/hotplace_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/hotplace/templates/hotplace/hotplace_form.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hotplace/templates/hotplace/hotplace_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/hotplace/templates/hotplace/hotplace_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hotplace/templates/hotplace_printlist.html" beforeDir="false" afterPath="$PROJECT_DIR$/hotplace/templates/hotplace_printlist.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hotplace/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/hotplace/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hotplace/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/hotplace/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/taggit/taggit_cloud2.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/taggit/taggit_cloud2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/taggit/taggit_post_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/taggit/taggit_post_list.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +56,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="TERMINAL_CUSTOM_COMMANDS_GOT_IT" value="true" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="preferences.fileTypes" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -84,7 +90,14 @@
       <option name="project" value="LOCAL" />
       <updated>1597738515285</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="hotplace_detail 방향키추가&#10;리스트에 사진추가">
+      <created>1597741307119</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1597741307119</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -102,13 +115,18 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="5" />
     <MESSAGE value="hotplace_detail 사진추가&#10;이전 다음추가" />
-    <option name="LAST_COMMIT_MESSAGE" value="hotplace_detail 사진추가&#10;이전 다음추가" />
+    <MESSAGE value="hotplace_detail 방향키추가&#10;리스트에 사진추가" />
+    <option name="LAST_COMMIT_MESSAGE" value="hotplace_detail 방향키추가&#10;리스트에 사진추가" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1597725231875">
+    <state x="604" y="170" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1597741514796">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1597725231875" />
+    <state x="604" y="170" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1597741514796" />
+    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1597741747280">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1597741747280" />
     <state x="184" y="86" key="MergeDialog" timestamp="1597726399807">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -121,14 +139,14 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="1265" y="233" key="RollbackChangesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1597739061263" />
-    <state x="461" y="164" key="SettingsEditor" timestamp="1597710216429">
+    <state x="768" y="161" key="SettingsEditor" timestamp="1597741588076">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="461" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1597710216429" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1597738518537">
+    <state x="768" y="161" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1597741588076" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1597741751851">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1597738518537" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1597741751851" />
     <state x="776" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1597726643707">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -137,5 +155,16 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="768" y="262" key="git4idea.branch.GitSmartOperationDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1597726305803" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/hotplace/views.py</url>
+          <line>34</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

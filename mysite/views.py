@@ -1,6 +1,7 @@
 from django.views.generic import TemplateView, CreateView
 from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse_lazy
+from .form import CreateUserForm
 
 # 유저
 from django.contrib.auth.mixins import AccessMixin
@@ -14,7 +15,7 @@ class HomeView(TemplateView):
     template_name = 'home.html'
 class UserCreateView(CreateView):
     template_name = 'registration/signup.html'
-    form_class = UserCreationForm
+    form_class = CreateUserForm
     success_url = reverse_lazy('signup_done')
 
 class UserCreateDoneTV(TemplateView):

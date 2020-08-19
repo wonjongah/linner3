@@ -121,6 +121,7 @@
         <a href="{%url 'hotplace:tagged_object_list' tag.name%}">{{tag.name}}</a>
         {% endfor %}
         <br>
+        {% include "kakao_map.html" %}
         <div class="text-right my-3">
             {% for file in hotplace.files.all %}
             <a href="{% url 'hotplace:download' file.id %}" class="ml-4">

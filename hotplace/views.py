@@ -30,10 +30,10 @@ class HotplaceDV(DetailView):
 
 # Tag View
 class TagCloudTV(TemplateView):
-    template_name = 'taggit/taggit_cloud.html'
+    template_name = 'taggit/taggit_cloud2.html'
 
 class TaggedObjectLV(ListView):
-    template_name = 'taggit/taggit_post.html'
+    template_name = 'taggit/taggit_post_list.html'
     model = Hotplace
 
     def get_queryset(self):
