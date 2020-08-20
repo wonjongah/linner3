@@ -61,7 +61,7 @@ class HotplaceMAV(MonthArchiveView):
 
 class HotplaceCreateView(LoginRequiredMixin,CreateView):
     model = Hotplace
-    fields = ['title','rating','content','tags','coordinate']
+    fields = ['title','rating','content','tags','latitude','longtitude']
     # fields = ['title','slug','rating','content','tags']
     # initial = {'slug': 'auto-filling-do-not-input'}
     success_url = reverse_lazy('hotplace:index')
@@ -79,7 +79,7 @@ class HotplaceCreateView(LoginRequiredMixin,CreateView):
 
 class HotplaceUpdateView(OwnerOnlyMixin,UpdateView):
     model = Hotplace
-    fields = ['title','rating','content','tags','coordinate']
+    fields = ['title','rating','content','tags','latitude','longtitude']
     success_url = reverse_lazy('hotplace:index')
 
     def form_valid(self, form):

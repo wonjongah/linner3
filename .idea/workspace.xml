@@ -19,11 +19,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cf04dd3a-4c77-47ad-a40b-365061ab0895" name="기본 변경 목록" comment="api 추가&#10;하고싶다">
-      <change afterPath="$PROJECT_DIR$/hotplace/templates/kakao_search.html" afterDir="false" />
+    <list default="true" id="cf04dd3a-4c77-47ad-a40b-365061ab0895" name="기본 변경 목록" comment="좌표 넣는것까지 성공">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hotplace/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/hotplace/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hotplace/templates/hotplace/hotplace_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/hotplace/templates/hotplace/hotplace_detail.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hotplace/templates/hotplace/hotplace_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/hotplace/templates/hotplace/hotplace_form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hotplace/templates/kakao_map.html" beforeDir="false" afterPath="$PROJECT_DIR$/hotplace/templates/kakao_map.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hotplace/templates/kakao_search.html" beforeDir="false" afterPath="$PROJECT_DIR$/hotplace/templates/kakao_search.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hotplace/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/hotplace/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -98,7 +100,14 @@
       <option name="project" value="LOCAL" />
       <updated>1597826626594</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="좌표 넣는것까지 성공">
+      <created>1597828792097</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1597828792097</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -118,7 +127,8 @@
     <MESSAGE value="hotplace_detail 사진추가&#10;이전 다음추가" />
     <MESSAGE value="hotplace_detail 방향키추가&#10;리스트에 사진추가" />
     <MESSAGE value="api 추가&#10;하고싶다" />
-    <option name="LAST_COMMIT_MESSAGE" value="api 추가&#10;하고싶다" />
+    <MESSAGE value="좌표 넣는것까지 성공" />
+    <option name="LAST_COMMIT_MESSAGE" value="좌표 넣는것까지 성공" />
   </component>
   <component name="WindowStateProjectService">
     <state x="604" y="170" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1597741514796">
@@ -145,10 +155,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="768" y="161" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1597741588076" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1597826631253">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1597828796215">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1597826631253" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1597828796215" />
     <state x="776" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1597726643707">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

@@ -70,15 +70,19 @@ form {
             <div class="col-sm-5"> {{ form.tags|add_class:"form-control" }}</div>
             <small class="form-text text-muted">{{ form.tags.help_text }}</small></div>
 
-        {% include "kakao_search.html" %}
-        <div class="form-group row"> {{ form.coordinate| add_label_class:"col-form-label col-sm-2 ml-3 font-weight-bold" }}
-            <div id="result2" class="col-sm-5">{{ form.coordinate|add_class:"form-control" }}</div>
-            <small class="form-text text-muted">{{ form.tags.help_text }}</small></div>
+
+        <div class="form-group row"> {{ form.latitude| add_label_class:"col-form-label col-sm-2 ml-3 font-weight-bold" }}
+            <div  class="col-sm-5">{{ form.latitude|add_class:"form-control" }}</div>
+        </div>
+        <div class="form-group row"> {{ form.longtitude| add_label_class:"col-form-label col-sm-2 ml-3 font-weight-bold" }}
+            <div  class="col-sm-5">{{ form.longtitude|add_class:"form-control" }}</div>
+        </div>
 
         <div class="form-group">
             <div class="offset-sm-2 col-sm-5"><input type="submit" value="Submit" class="btn btn-info"/></div>
         </div>
     </form>
+    {% include "kakao_search.html" %}
 </div>
 {% endblock %}
 
@@ -91,22 +95,5 @@ form {
        statusbar: false,
        toolbar1: 'formatselect | bold italic strikethrough forecolor backcolor | link | alignleft aligncenter alignright alignjustify | numlist bullist outdent indent | removeformat'
      });
-
-    kakao.maps.event.addListener(map, 'click', function (mouseEvent) {
-
-            // 클릭한 위도, 경도 정보를 가져옵니다
-            var latlng = mouseEvent.latLng;
-
-            var message = latlng.getLat() +","+latlng.getLng() ;
-            var resultDiv = document.getElementById('result2');
-            resultDiv.innerHTML = message;
-
-
-        });
-
-
-
-
-
 </script>
 {% endblock %}

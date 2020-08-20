@@ -26,7 +26,8 @@ class Hotplace(models.Model):
 
     tags = TaggableManager(blank=True)
 
-    coordinate = models.FloatField('COORDINATE',blank=True,null=True)
+    latitude = models.FloatField('LATITUDE',blank=True,null=True)
+    longtitude = models.FloatField('LONGTITUDE',blank=True,null=True)
 
     owner = models.ForeignKey(User,on_delete=models.CASCADE,blank=True,null=True)
 
