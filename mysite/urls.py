@@ -33,5 +33,6 @@ urlpatterns = [
     path('accounts/signup/', UserCreateView.as_view(), name='signup'),
     path('accounts/signup/done/', UserCreateDoneTV.as_view(), name='signup_done'),
     path('search/', SearchFormView.as_view(), name='search'),
+    # path('mywrite/', Mywrite.as_view(), name="mywrite"),
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

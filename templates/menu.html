@@ -90,7 +90,7 @@
 
         <a type="button" href="{% url 'recipe:recipe_listview' %}">Recipe</a>
         <a type="button" href="{% url 'hotplace:index' %}">Hot Place</a>
-          <a type="button" href="{% url 'search' %}">Search</a
+          <a type="button" href="{% url 'search' %}">Search</a>
         <li class="nav-item dropdown mx-1 btn btn-primary">
         {% if user.is_active %}
         <a class="nav-link dropdown-toggle text-white" href="#" data-toggle="dropdown">
@@ -113,7 +113,7 @@
         <a class="dropdown-item" href="{% url 'signup' %}">Register</a>
         </div>
         {% endif %}
-          >
+
         </li>
     </ul>
 </div>
